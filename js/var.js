@@ -209,16 +209,30 @@ function json2Ting(){
 }
 }
 
+function printKingsNicely(){
+	var length = requestData.length;
+	for(var i =0; i<length; i++){
+	console.log(requestData[i].nm);
+	console.log(requestData[i].cty);
+	console.log(requestData[i].hse);
+	console.log(requestData[i].yrs+ "\n");
+	}
+}
+
 function searchKings(){
+	json2Ting();
 	var x = document.getElementById("searchKings");
 	var input = x.elements[0].value;
 	var length = requestData.length;
 	
 	for(var i =0; i<length; i++){
-		var data = requestData[i].nm;
-		//console.log(data);
-		if(input.indexOf(data) !== -1){
-			console.log(requestData[i]);
+		var data = requestData[i];
+		for(var name in data){
+			if(data.hasOwnProperty(name)){
+				if(input.indexOf(data[name])!== -1){
+					console.log(requestData[i]);
+				}
+			}
 		}
 	}
 }
