@@ -179,4 +179,47 @@ function removeFromDom(){
 	x.innerHTML ="";
 }
 
+function json1Ting(){
+	var requestURL='https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/example.json'
+var request = new XMLHttpRequest();
+request.open('GET', requestURL);
+request.responseType= 'json';
+request.send();
+request.onload = function() {
+	var requestData = request.response;
+	console.log(requestData);
+	//var myH1 = document.createElement('h1');
+	//myH1.textContent = requestData['squadName'];
+	//document.getElementsByTagName('head')[0].appendChild(myH1);
+}
+}
+var requestData;
+function json2Ting(){
+	
+	var requestURL='https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/kings.json'
+	var request = new XMLHttpRequest();
+	request.open('GET', requestURL);
+	request.responseType= 'json';
+	request.send();
+	request.onload = function() {
+	requestData = request.response;
+	console.log(requestData);
+	console.log(requestData[0]);
+	alert("JSON Data has been Loaded");
+}
+}
+
+function searchKings(){
+	var x = document.getElementById("searchKings");
+	var input = x.elements[0].value;
+	var length = requestData.length;
+	
+	for(var i =0; i<length; i++){
+		var data = requestData[i].nm;
+		//console.log(data);
+		if(input.indexOf(data) !== -1){
+			console.log(requestData[i]);
+		}
+	}
+}
 
