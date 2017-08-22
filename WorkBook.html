@@ -1,91 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <title>Clean Blog - Start Bootstrap Theme</title>
+  <title>Clean Blog - Start Bootstrap Theme</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Custom fonts for this template -->
-    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+  <!-- Custom fonts for this template -->
+  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+    rel='stylesheet' type='text/css'>
 
-    <!-- Custom styles for this template -->
-    <link href="css/clean-blog.min.css" rel="stylesheet">
-    <script src="js/var.js"></script>
-  </head>
+  <!-- Custom styles for this template -->
+  <link href="css/clean-blog.min.css" rel="stylesheet">
+  <script src="js/var.js"></script>
+</head>
 
-  <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-      <div class="container">
-        <a class="navbar-brand" href="Home.html">Start Bootstrap</a>
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+<body>
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand" href="Home.html">Start Bootstrap</a>
+      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+        aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           Menu
           <i class="fa fa-bars"></i>
         </button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="index.html">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="AboutMe.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="ProjectList.html">Projects</a>
-            </li>
-          </ul>
-        </div>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="AboutMe.html">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ProjectList.html">Projects</a>
+          </li>
+        </ul>
       </div>
-    </nav>
+    </div>
+  </nav>
 
-    <!-- Page Header -->
-    <header class="masthead" BGCOLOR="#111">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 col-md-10 mx-auto">
-            <div class="page-heading">
-              <h1>Level 1 Tasks</h1>
-              <span class="subheading">All Output is on Console</span>
-            </div>
+  <!-- Page Header -->
+  <header class="masthead" BGCOLOR="#111">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-heading">
+            <h1>Level 1 Tasks</h1>
+            <span class="subheading">All Output is on Console</span>
           </div>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-<div>
-  Press Make Person1 before using.<br>
-  <input type = "button" onclick = "helloWorld()" value = "Say Hello"/>  <br>
-  <input type = "button" onclick="makeAdam()" value ="Make Person1"> <br>
-<!--  <input type = "button" onclick="makePerson()" value ="Make Person2"> -->
-  <input type = "button" onclick = "increaseAge()" value = "Increase Age"/> <br>
-  <input type = "button" onclick = "square(8)" value = "Square number"/> <br>
-  <input type = "button" onclick = "sumThree(1,2,3)" value = "Sum Three"/> <br>
-  <input type = "button" onclick="VarTest(1,2)" value ="Test Function"> <br>
+  <div>
+    Press Make Person1 before using.<br>
+    <input type="button" onclick="helloWorld()" value="Say Hello" /> <br>
+    <input type="button" onclick="makeAdam()" value="Make Person1"> <br>
+    <!--  <input type = "button" onclick="makePerson()" value ="Make Person2"> -->
+    <input type="button" onclick="increaseAge()" value="Increase Age" /> <br>
+    <input type="button" onclick="square(8)" value="Square number" /> <br>
+    <input type="button" onclick="sumThree(1,2,3)" value="Sum Three" /> <br>
+    <input type="button" onclick="VarTest(1,2)" value="Test Function"> <br>
 
-  <form id = "PersonForm"><br>
-  Name: <input type ="text" id= 'name'><br>
-  Age: <input type ="text" id= 'age' onkeypress='return event.charCode >= 48 && event.charCode <= 57'></br>
-  Occupation: <input type ="text" id= 'occ'></br>
-  </form>
-<button onclick ="submitForm()">Submit</button> <br><br>
+    <form id="PersonForm"><br> Name: <input type="text" id='name'><br> Age: <input type="text" id='age' onkeypress='return event.charCode >= 48 && event.charCode <= 57'></br>
+      Occupation: <input type="text" id='occ'></br>
+    </form>
+    <button onclick="submitForm()">Submit</button> <br><br>
 
-  <input type = "button" onclick = "increaseAgeP2()" value = "Increase Person 2 Age"/> <br>
+    <input type="button" onclick="increaseAgeP2()" value="Increase Person 2 Age" /> <br>
 
-<input type = "button" onclick="upper()" value ="Strings 1 Task"> <br>
-<input type = "button" onclick="concat()" value ="Strings 2 Task"> <br>
-<input type = "button" onclick="stringArray()" value ="Arrays 1 / Strings 3 Task"> <br>
-<input type = "button" onclick= "checkAge()" value ="Conditionals 1"> <br>
-<input type = "button" onclick= "forLoop()" value ="Iteration1- For Loop 1-10"> <br>
-<input type = "button" onclick= "forLoopDiv()" value ="Iteration2- For Loop 1-10 div by 2"> <br>
- 	<!-- <input type = "button" onclick = "makeAdam()" value = "Create Person"/> --> 
- </div>
-  </body>
+    <input type="button" onclick="upper()" value="Strings 1 Task"> <br>
+    <input type="button" onclick="concat()" value="Strings 2 Task"> <br>
+    <input type="button" onclick="stringArray()" value="Arrays 1 / Strings 3 Task"> <br>
+    <input type="button" onclick="checkAge()" value="Conditionals 1"> <br>
+    <input type="button" onclick="forLoop()" value="Iteration1- For Loop 1-10"> <br>
+    <input type="button" onclick="forLoopDiv()" value="Iteration2- For Loop 1-10 div by 2"> <br>
+    <!-- <input type = "button" onclick = "makeAdam()" value = "Create Person"/> -->
+  </div>
+
+  <footer>
+
+    <p class="copyright text-muted">Copyright &copy; Your Website 2017</p>
+
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="js/jquery/jquery.min.js"></script>
+  <script src="js/popper/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+
+  <!-- Custom scripts for this template -->
+  <script src="js/clean-blog.min.js"></script>
+
+</body>
