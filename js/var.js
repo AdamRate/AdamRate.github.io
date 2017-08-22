@@ -162,7 +162,21 @@ function strings4(){
 	}
 }
 
-function dom1(){
-	
+function createDom(){
+	var x=document.getElementById("dom1");
+	x.innerHTML = "<p> </p>";
 }
+
+function addToDom(){
+	var x =document.getElementById("dom1");
+	var y = document.getElementById("addToDomForm");
+	var string = y.elements[0].value;
+	x.innerHTML = string;
+}
+
+function removeFromDom(){
+	var x =document.getElementById("dom1");
+	x.innerHTML ="";
+}
+
 
