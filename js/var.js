@@ -60,12 +60,12 @@ function displayPerson() {
 function upper() {
 	var One = 'He said "My name is Adam"';
 	console.log(One);
-	var One = One.toUpperCase();
+	One = One.toUpperCase();
 	console.log(One);
 }
 
 function concat() {
-	var str = "Adam"
+	var str = "Adam";
 	var num = 12;
 	var conc = str + num;
 	console.log(conc);
@@ -82,9 +82,10 @@ function stringArray() {
 
 function checkAge() {
 	if (parseInt(Person.Age) < 40 && parseInt(Person.Age) > 20)
-		return console.log(true);
-	else
+	{ return console.log(true); }
+	else {
 		return console.log(false);
+	}
 }
 
 function forLoop() {
@@ -177,7 +178,7 @@ function removeFromDom() {
 }
 
 function json1Ting() {
-	var requestURL = 'https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/example.json'
+	var requestURL = 'https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/example.json';
 	var request = new XMLHttpRequest();
 	request.open('GET', requestURL);
 	request.responseType = 'json';
@@ -185,15 +186,12 @@ function json1Ting() {
 	request.onload = function () {
 		var requestData = request.response;
 		console.log(requestData);
-		//var myH1 = document.createElement('h1');
-		//myH1.textContent = requestData['squadName'];
-		//document.getElementsByTagName('head')[0].appendChild(myH1);
-	}
+	};
 }
 var requestData;
 function json2Ting() {
 
-	var requestURL = 'https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/kings.json'
+	var requestURL = 'https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/kings.json';
 	var request = new XMLHttpRequest();
 	request.open('GET', requestURL);
 	request.responseType = 'json';
@@ -203,7 +201,7 @@ function json2Ting() {
 		console.log(requestData);
 		console.log(requestData[0]);
 		alert("JSON Data has been Loaded");
-	}
+	};
 }
 
 function printKingsNicely() {
@@ -253,8 +251,8 @@ function addToGarage(type, size, reg) {
 	console.log(garageStore);
 }
 
-function removeFromGarage() {
-
+function removeFromGarage(number) {
+	garageStore.splice(number, 1);
 }
 
 function showAllGarage() {
