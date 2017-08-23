@@ -235,28 +235,32 @@ function searchKings() {
 }
 
 let garageStore = [];
-function createGarage() {
-	garageStore = {};
-}
+// function createGarage() {
+// 	garageStore = {};
+// }
 
 function submitCar() {
 	let x = document.getElementById("garageForm");
 	let type = x.elements[0].value;
 	let size = x.elements[1].value;
 	let reg = x.elements[2].value;
-	addToGarage(type, size, reg);
+	let iss = x.elements[3].value;
+	addToGarage(type, size, reg, iss);
 }
 
 let vehicle;
-function addToGarage(type, size, reg) {
-	vehicle = { type, size, reg };
+function addToGarage(type, size, reg, issues) {
+	vehicle = { type, size, reg, issues };
 	garageStore.push(vehicle);
-	console.log(garageStore);
+	let x = garageStore.length;
+	console.log(x);
+	console.log(garageStore[0]);
+	console.log("Car Added:" + JSON.stringify(garageStore[x - 1]) + " Total: " + garageStore.length);
 }
 
-function removeFromGarage(number) {
+function removeFromGarage() {
 	let id = document.getElementById("garageDelForm");
-	let x = id.elements[number];
+	let x = id.elements[0];
 	garageStore.splice(x, 1);
 	console.log(garageStore);
 }
@@ -266,5 +270,52 @@ function showAllGarage() {
 }
 
 function calcBill() {
+	let id = document.getElementById("garageDelForm");
+	let x = parseInt(id.elements[0].value);
+	console.log(garageStore.length);
+	if (x <= garageStore.length && x > 0) {
+		console.log(`Car ${x} Fix Cost: £${(garageStore[x - 1].size) * 4 + (garageStore[x - 1].issues) * 100}  `);
+	}
+	else {
+		console.log("Car does not exist");
+	}
+}
 
+function calcBillAll() {
+	for (let i = 0; i < garageStore.length; i++) {
+		console.log(`Car ${i + 1} Fix Cost: £${(garageStore[i].size) * 4 + (garageStore[i].issues) * 100}  `);
+	}
+}
+
+function getCommand() {
+	let comm = document.getElementById("garageCommand");
+	let val = comm.elements[0].value;
+	val = val.split(" ");
+
+	if (val[0].includes("add")) {
+		if (val.length === 6) {
+			addToGarage(val[1], val[2], val[3] + val[4], val[5]);
+		}
+		else {
+			addToGarage(val[1], val[2], val[3], val[4]);
+		}
+	}
+
+	if (val[0].includes("print")) {
+		if (val.length === 2 && val[1] <= garageStore.length && val[1] != 0) {
+			console.log(garageStore[val[1] - 1]);
+		}
+		else {
+			showAllGarage();
+		}
+	}
+
+	if (val[0].includes("bill")) {
+		if (val.length === 2 && val[1] <= garageStore.length && val[1] != 0) {
+			bill(val[1]);
+		}
+		else {
+			calcBillAll();
+		}
+	}
 }

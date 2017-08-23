@@ -108,14 +108,23 @@
   <br><b> Garage Task </b>
   <br><button onclick="showAllGarage()"> Show Garage </button>
   <br>
-  <form id="garageForm"> Type: <input type="text" id='type'><br> Size: <input type="text" id='size'><br> Reg: <input type="text" id='reg'><br>
+  <form id="garageForm"> Type: <input type="text" id='type' value="car">
+    <br> Size: <input type="text" id='size' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+    <br> Reg: <input type="text" id='reg'>
+    <br> No. of Issues: <input type="text" id='issues'> <br>
   </form>
   <button onclick="submitCar()">Submit Car</button><br>
 
   <br>
   <form id="garageDelForm"> ID: <input type="text" id='id'><br>
   </form>
-  <button onclick="removeFromGarage()">Remove</button><br>
+  <button onclick="removeFromGarage()">Remove</button>
+  <button onclick="calcBill()">Calculate Bills</button><br>
+  <br> <button onclick="calcBillAll()">Calculate All Bills</button><br>
+  <br>
+  <form id="garageCommand"> Command: <input type="text" id='command'><br>
+  </form>
+  <button onclick="getCommand()">Run Command</button><br>
 
   <footer>
 
