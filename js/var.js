@@ -268,11 +268,13 @@ function removeFromGarage() {
 function showAllGarage() {
 	console.log(garageStore);
 }
-
-function calcBill() {
+function calcBillSubmit() {
 	let id = document.getElementById("garageDelForm");
 	let x = parseInt(id.elements[0].value);
-	console.log(garageStore.length);
+	calcBill(x);
+}
+
+function calcBill(x) {
 	if (x <= garageStore.length && x > 0) {
 		console.log(`Car ${x} Fix Cost: £${(garageStore[x - 1].size) * 4 + (garageStore[x - 1].issues) * 100}  `);
 	}
@@ -312,7 +314,7 @@ function getCommand() {
 
 	if (val[0].includes("bill")) {
 		if (val.length === 2 && val[1] <= garageStore.length && val[1] != 0) {
-			bill(val[1]);
+			calcBill(val[1]);
 		}
 		else {
 			calcBillAll();
