@@ -1,5 +1,8 @@
-var Person;
-var Person2;
+/*jslint node: true */
+'use strict';
+
+let Person;
+let Person2;
 
 function VarTest(x, y) {
 	return console.log(x + y);
@@ -28,10 +31,10 @@ function sumThree(a, b, c) {
 }
 
 function submitForm() {
-	var x = document.getElementById("PersonForm");
-	var name = (x.elements[0].value);
-	var age = (x.elements[1].value);
-	var occ = (x.elements[2].value);
+	let x = document.getElementById("PersonForm");
+	let name = (x.elements[0].value);
+	let age = (x.elements[1].value);
+	let occ = (x.elements[2].value);
 	makePerson(name, age, occ);
 }
 
@@ -58,21 +61,21 @@ function displayPerson() {
 }
 
 function upper() {
-	var One = 'He said "My name is Adam"';
+	let One = 'He said "My name is Adam"';
 	console.log(One);
 	One = One.toUpperCase();
 	console.log(One);
 }
 
 function concat() {
-	var str = "Adam";
-	var num = 12;
-	var conc = str + num;
+	let str = "Adam";
+	let num = 12;
+	let conc = str + num;
 	console.log(conc);
 }
 
 function stringArray() {
-	var arr = ['Adam', 'is', 'the', 'Best'];
+	let arr = ['Adam', 'is', 'the', 'Best'];
 	console.log(arr);
 	arr.push("Ever");
 	console.log(arr);
@@ -89,13 +92,13 @@ function checkAge() {
 }
 
 function forLoop() {
-	for (var i = 1; i < 11; i++) {
+	for (let i = 1; i < 11; i++) {
 		console.log(i);
 	}
 }
 
 function forLoopDiv() {
-	for (var i = 1; i < 11; i++) {
+	for (let i = 1; i < 11; i++) {
 		if (i % 2 === 0) {
 			console.log(i);
 		}
@@ -107,15 +110,15 @@ function fizzBuzz() {
 }
 
 function submitFBForm() {
-	var x = document.getElementById("FizzBuzzForm");
-	var count = (x.elements[0].value);
-	var fizz = (x.elements[1].value);
-	var buzz = (x.elements[2].value);
+	let x = document.getElementById("FizzBuzzForm");
+	let count = (x.elements[0].value);
+	let fizz = (x.elements[1].value);
+	let buzz = (x.elements[2].value);
 	customFizzBuzz(count, fizz, buzz);
 }
 function customFizzBuzz(count, fizz, buzz) {
-	var response = "";
-	for (var i = 1; i < count; i++) {
+	let response = "";
+	for (let i = 1; i < count; i++) {
 		response = "";
 		if (i % 3 === 0) {
 			response += fizz;
@@ -128,8 +131,8 @@ function customFizzBuzz(count, fizz, buzz) {
 }
 
 function iteration4() {
-	var x = document.getElementById("iteration4Form");
-	var count = parseInt((x.elements[0].value));
+	let x = document.getElementById("iteration4Form");
+	let count = parseInt((x.elements[0].value));
 
 	while (count != 1) {
 		if (count % 3 === 0) {
@@ -148,10 +151,10 @@ function iteration4() {
 }
 
 function strings4() {
-	var x = document.getElementById("strings4Form");
-	var string = x.elements[0].value;
-	var t = 0;
-	for (var i = 0; i < string.length; i++) {
+	let x = document.getElementById("strings4Form");
+	let string = x.elements[0].value;
+	let t = 0;
+	for (let i = 0; i < string.length; i++) {
 		if (string.charAt(i) === string.charAt(i + 1) && string.charAt(i) === string.charAt(i + 2)) {
 			t += 1;
 			console.log(t);
@@ -161,38 +164,38 @@ function strings4() {
 }
 
 function createDom() {
-	var x = document.getElementById("dom1");
+	let x = document.getElementById("dom1");
 	x.innerHTML = "<p> </p>";
 }
 
 function addToDom() {
-	var x = document.getElementById("dom1");
-	var y = document.getElementById("addToDomForm");
-	var string = y.elements[0].value;
+	let x = document.getElementById("dom1");
+	let y = document.getElementById("addToDomForm");
+	let string = y.elements[0].value;
 	x.innerHTML = string;
 }
 
 function removeFromDom() {
-	var x = document.getElementById("dom1");
+	let x = document.getElementById("dom1");
 	x.innerHTML = "";
 }
 
 function json1Ting() {
-	var requestURL = 'https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/example.json';
-	var request = new XMLHttpRequest();
+	let requestURL = 'https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/example.json';
+	let request = new XMLHttpRequest();
 	request.open('GET', requestURL);
 	request.responseType = 'json';
 	request.send();
 	request.onload = function () {
-		var requestData = request.response;
+		let requestData = request.response;
 		console.log(requestData);
 	};
 }
-var requestData;
-function json2Ting() {
 
-	var requestURL = 'https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/kings.json';
-	var request = new XMLHttpRequest();
+let requestData;
+function json2Ting() {
+	let requestURL = 'https://raw.githubusercontent.com/ewomackQA/JSONDataRepo/master/kings.json';
+	let request = new XMLHttpRequest();
 	request.open('GET', requestURL);
 	request.responseType = 'json';
 	request.send();
@@ -205,8 +208,8 @@ function json2Ting() {
 }
 
 function printKingsNicely() {
-	var length = requestData.length;
-	for (var i = 0; i < length; i++) {
+	let length = requestData.length;
+	for (let i = 0; i < length; i++) {
 		console.log(requestData[i].nm);
 		console.log(requestData[i].cty);
 		console.log(requestData[i].hse);
@@ -215,13 +218,13 @@ function printKingsNicely() {
 }
 
 function searchKings() {
-	var x = document.getElementById("searchKings");
-	var input = x.elements[0].value;
-	var length = requestData.length;
+	let x = document.getElementById("searchKings");
+	let input = x.elements[0].value;
+	let length = requestData.length;
 
-	for (var i = 0; i < length; i++) {
-		var data = requestData[i];
-		for (var name in data) {
+	for (let i = 0; i < length; i++) {
+		let data = requestData[i];
+		for (let name in data) {
 			if (data.hasOwnProperty(name)) {
 				if (input.indexOf(data[name]) !== -1) {
 					console.log(requestData[i]);
@@ -231,20 +234,20 @@ function searchKings() {
 	}
 }
 
-var garageStore = [];
+let garageStore = [];
 function createGarage() {
 	garageStore = {};
 }
 
 function submitCar() {
-	var x = document.getElementById("garageForm");
-	var type = x.elements[0].value;
-	var size = x.elements[1].value;
-	var reg = x.elements[2].value;
+	let x = document.getElementById("garageForm");
+	let type = x.elements[0].value;
+	let size = x.elements[1].value;
+	let reg = x.elements[2].value;
 	addToGarage(type, size, reg);
 }
 
-var vehicle;
+let vehicle;
 function addToGarage(type, size, reg) {
 	vehicle = { type, size, reg };
 	garageStore.push(vehicle);
@@ -252,11 +255,14 @@ function addToGarage(type, size, reg) {
 }
 
 function removeFromGarage(number) {
-	garageStore.splice(number, 1);
+	let id = document.getElementById("garageDelForm");
+	let x = id.elements[number];
+	garageStore.splice(x, 1);
+	console.log(garageStore);
 }
 
 function showAllGarage() {
-
+	console.log(garageStore);
 }
 
 function calcBill() {
