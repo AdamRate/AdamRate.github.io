@@ -253,14 +253,18 @@ function addToGarage(type, size, reg, issues) {
 	vehicle = { type, size, reg, issues };
 	garageStore.push(vehicle);
 	let x = garageStore.length;
-	console.log(x);
-	console.log(garageStore[0]);
+	console.log(garageStore);
 	console.log("Car Added:" + JSON.stringify(garageStore[x - 1]) + " Total: " + garageStore.length);
+	id++;
 }
 
-function removeFromGarage() {
+function removeSubmit() {
 	let id = document.getElementById("garageDelForm");
 	let x = id.elements[0];
+	removeFromGarage(x);
+}
+
+function removeFromGarage(x) {
 	garageStore.splice(x, 1);
 	console.log(garageStore);
 }
@@ -319,5 +323,14 @@ function getCommand() {
 		else {
 			calcBillAll();
 		}
+	}
+
+	if (val[0].includes("remove")) {
+		if (val.length === 2 && val[1] <= garageStore.length && val[1] != 0) {
+			removeFromGarage(val[1] - 1);
+		}
+	}
+	else {
+		console.log("Command not found- Try 'add', 'remove', 'bill' or 'print'")
 	}
 }
