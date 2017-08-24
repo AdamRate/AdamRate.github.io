@@ -239,6 +239,19 @@ let garageStore = [];
 // 	garageStore = {};
 // }
 
+function generateCars() {
+	addToGarage("car", 5, "th56thy", 3);
+	addToGarage("car", 7, "ab55abc", 0);
+	addToGarage("car", 5, "cd57cde", 5);
+	addToGarage("car", 5, "de58def", 15);
+	addToGarage("car", 5, "ef59efg", 7);
+	addToGarage("car", 9, "fg55fgh", 0);
+	addToGarage("car", 3, "hu52zxm", 2);
+	addToGarage("car", 5, "hb00ijk", 9);
+	addToGarage("car", 7, "ac05plq", 3);
+	addToGarage("car", 5, "el0000t", 3);
+}
+
 function submitCar() {
 	let x = document.getElementById("garageForm");
 	let type = x.elements[0].value;
@@ -252,10 +265,7 @@ let vehicle;
 function addToGarage(type, size, reg, issues) {
 	vehicle = { type, size, reg, issues };
 	garageStore.push(vehicle);
-	let x = garageStore.length;
-	console.log(garageStore);
-	console.log("Car Added:" + JSON.stringify(garageStore[x - 1]) + " Total: " + garageStore.length);
-	id++;
+	showAllGarage();
 }
 
 function removeSubmit() {
@@ -266,12 +276,22 @@ function removeSubmit() {
 
 function removeFromGarage(x) {
 	garageStore.splice(x, 1);
-	console.log(garageStore);
+	showAllGarage();
 }
 
 function showAllGarage() {
+	document.getElementById('outputs').innerHTML = "Garage Contents:\n";
+	for (let x = 1; x <= garageStore.length; x++) {
+		document.getElementById('outputs').innerHTML += ("Type: " + garageStore[x - 1].type + " \tSize: " + garageStore[x - 1].size + " \tReg: " + garageStore[x - 1].reg + " \tFaults: " + garageStore[x - 1].issues + "\n");
+	}
+	document.getElementById('outputs').innerHTML += ("\nNumber of Cars: " + garageStore.length);
 	console.log(garageStore);
 }
+
+function showOneGarage(x) {
+	document.getElementById('outputs').innerHTML += ("\nType: " + garageStore[x - 1].type + " \tSize: " + garageStore[x - 1].size + " \tReg: " + garageStore[x - 1].reg + " \tFaults: " + garageStore[x - 1].issues + "\n");
+}
+
 function calcBillSubmit() {
 	let id = document.getElementById("garageDelForm");
 	let x = parseInt(id.elements[0].value);
@@ -281,15 +301,18 @@ function calcBillSubmit() {
 function calcBill(x) {
 	if (x <= garageStore.length && x > 0) {
 		console.log(`Car ${x} Fix Cost: £${(garageStore[x - 1].size) * 4 + (garageStore[x - 1].issues) * 100}  `);
+		document.getElementById('outputs').innerHTML += ("\nCar " + (x) + " Fix Cost: £" + (garageStore[x - 1].size * 4) + (garageStore[x - 1].issues * 100));
 	}
 	else {
 		console.log("Car does not exist");
+		document.getElementById('outputs').innerHTML = "Car Doesn't Exist";
 	}
 }
 
 function calcBillAll() {
 	for (let i = 0; i < garageStore.length; i++) {
 		console.log(`Car ${i + 1} Fix Cost: £${(garageStore[i].size) * 4 + (garageStore[i].issues) * 100}  `);
+		document.getElementById('outputs').innerHTML += ("\nCar " + (i + 1) + " Fix Cost: £" + (garageStore[i].size * 4) + (garageStore[i].issues * 100));
 	}
 }
 
@@ -310,6 +333,7 @@ function getCommand() {
 	if (val[0].includes("print")) {
 		if (val.length === 2 && val[1] <= garageStore.length && val[1] != 0) {
 			console.log(garageStore[val[1] - 1]);
+			showOneGarage(val[1]);
 		}
 		else {
 			showAllGarage();
@@ -329,8 +353,10 @@ function getCommand() {
 		if (val.length === 2 && val[1] <= garageStore.length && val[1] != 0) {
 			removeFromGarage(val[1] - 1);
 		}
+		else {
+			console.log("Command not found- Try 'add', 'remove', 'bill' or 'print'");
+			document.getElementById('outputs').innerHTML += ("\nCommand not found- Try 'add', 'remove', 'bill' or 'print'");
+		}
 	}
-	else {
-		console.log("Command not found- Try 'add', 'remove', 'bill' or 'print'")
-	}
+
 }

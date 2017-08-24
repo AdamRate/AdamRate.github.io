@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Clean Blog - Start Bootstrap Theme</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
+        rel='stylesheet' type='text/css'>
+
+    <!-- Custom styles for this template -->
+    <link href="css/clean-blog.min.css" rel="stylesheet">
+    <script src="js/var.js"></script>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Home</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          Menu
+          <i class="fa fa-bars"></i>
+        </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="AboutMe.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="ProjectList.html">Projects</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="masthead" BGCOLOR="#111">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="page-heading">
+                        <h1>Garage Task</h1>
+                        <span class="subheading">All Output is on Console</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div>
+
+        <br><b><center> Garage Task </center></b>
+        <br>
+        <textarea id="outputs" rows=20 cols=45> 
+            Welcome to the Garage
+        </textarea>
+
+
+        <br><button onclick="generateCars()">Auto-Generate 10 cars</button><br>
+        <br>
+        <form id="garageForm"> Type: <input type="text" id='type' value="car">
+            <br> Size: <input type="text" id='size' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
+            <br> Reg: <input type="text" id='reg'>
+            <br> No. of Issues: <input type="text" id='issues'> <br>
+        </form>
+        <button onclick="submitCar()">Submit Car</button><br>
+
+        <br><button onclick="showAllGarage()"> Show Garage </button><br>
+        <br>
+        <form id="garageDelForm"> ID: <input type="text" id='id'><br>
+        </form>
+        <button onclick="removeFromGarage()">Remove</button>
+        <button onclick="calcBillSubmit()">Calculate Bills</button><br>
+        <br> <button onclick="calcBillAll()">Calculate All Bills</button><br>
+        <br>
+        <form id="garageCommand"> Command: <input type="text" id='command'><br>
+        </form>
+        <button onclick="getCommand()">Run Command</button><br>
+
+        <b> <center> Commands: </b>
+        <p>add- "add TYPE SIZE REG ISSUES"</p>
+        <p>remove- "remove 1" to remove vehicle 1 </p>
+        <p>bill- "bill" to calculate all bills or "bill 1" to bill vehicle 1</p>
+        <p> print- "print" to print all or "print 1" to print vehicle 1</p>
+        </center>
+    </div>
+
+
+    <footer>
+
+        <p class="copyright text-muted">Copyright &copy; Your Website 2017</p>
+
+    </footer>
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="js/jquery/jquery.min.js"></script>
+    <script src="js/popper/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="js/clean-blog.min.js"></script>
+
+
+</body>
