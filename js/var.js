@@ -30,20 +30,20 @@ function sumThree(a, b, c) {
 	return console.log(a + b + c);
 }
 
-function submitForm() {
-	let x = document.getElementById("PersonForm");
-	let name = (x.elements[0].value);
-	let age = (x.elements[1].value);
-	let occ = (x.elements[2].value);
-	makePerson(name, age, occ);
-}
-
 function makePerson(a, b, c) {
 	Person2 = { Name: "", Age: 0, Occupation: "" };
 	Person2.Name = a;
 	Person2.Age = parseInt(b);
 	Person2.Occupation = c;
 	console.log(Person2.Name, Person2.Age, Person2.Occupation);
+}
+
+function submitForm() {
+	let x = document.getElementById("PersonForm");
+	let name = (x.elements[0].value);
+	let age = (x.elements[1].value);
+	let occ = (x.elements[2].value);
+	makePerson(name, age, occ);
 }
 
 function makeAdam() {
@@ -105,17 +105,6 @@ function forLoopDiv() {
 	}
 }
 
-function fizzBuzz() {
-	customFizzBuzz(100, "Fizz", "Buzz");
-}
-
-function submitFBForm() {
-	let x = document.getElementById("FizzBuzzForm");
-	let count = (x.elements[0].value);
-	let fizz = (x.elements[1].value);
-	let buzz = (x.elements[2].value);
-	customFizzBuzz(count, fizz, buzz);
-}
 function customFizzBuzz(count, fizz, buzz) {
 	let response = "";
 	for (let i = 1; i < count; i++) {
@@ -128,6 +117,18 @@ function customFizzBuzz(count, fizz, buzz) {
 		}
 		console.log(i + "= " + response);
 	}
+}
+
+function fizzBuzz() {
+	customFizzBuzz(100, "Fizz", "Buzz");
+}
+
+function submitFBForm() {
+	let x = document.getElementById("FizzBuzzForm");
+	let count = (x.elements[0].value);
+	let fizz = (x.elements[1].value);
+	let buzz = (x.elements[2].value);
+	customFizzBuzz(count, fizz, buzz);
 }
 
 function iteration4() {
@@ -202,7 +203,6 @@ function json2Ting() {
 	request.onload = function () {
 		requestData = request.response;
 		console.log(requestData);
-		console.log(requestData[0]);
 		alert("JSON Data has been Loaded");
 	};
 }
@@ -235,10 +235,6 @@ function searchKings() {
 }
 
 let garageStore = [];
-// function createGarage() {
-// 	garageStore = {};
-// }
-
 function generateCars() {
 	addToGarage("car", 5, "th56thy", 3);
 	addToGarage("car", 7, "ab55abc", 0);
@@ -360,3 +356,40 @@ function getCommand() {
 	}
 
 }
+
+function getRektangle() {
+	let comm = document.getElementById("REKTform");
+	let val = comm.elements[0].value;
+	val = val.split(",");
+	let word = val[0];
+	let width = val[1];
+	let height = val[2];
+
+	for (let row = 0; row <= width; row += 1) {
+		for (let col = 0; col <= height; col += 1) {
+			document.getElementById('outputs').innerHTML = word;
+			let test = word.split("");
+			document.getElementById('outputs').innerHTML += "\n";
+			document.getElementById('outputs').innerHTML += (test[1]);
+
+			for (let test = 0; test < word.length; test++) {
+				document.getElementById('outputs').innerHTML += (" ");
+			}
+			document.getElementById('outputs').innerHTML += (test[2]);
+
+			document.getElementById('outputs').innerHTML += "\n";
+			document.getElementById('outputs').innerHTML += (test[2]);
+			for (let test = 0; test < word.length; test++) {
+				document.getElementById('outputs').innerHTML += (" ");
+			}
+			document.getElementById('outputs').innerHTML += (test[1]);
+
+			document.getElementById('outputs').innerHTML += "\n";
+			for (let i = word.length - 1; i >= 0; i--) {
+				document.getElementById('outputs').innerHTML += test[i];
+			}
+		}
+	}
+}
+
+

@@ -21,9 +21,11 @@
     <!-- Custom styles for this template -->
     <link href="css/clean-blog.min.css" rel="stylesheet">
     <script src="js/var.js"></script>
+
 </head>
 
 <body>
+
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
         <div class="container">
@@ -55,55 +57,35 @@
             <div class="row">
                 <div class="col-lg-8 col-md-10 mx-auto">
                     <div class="page-heading">
-                        <h1>Garage Task</h1>
-                        <span class="subheading">Command Help at Bottom of Page</span>
+                        <h1>About Me</h1>
+                        <span class="subheading"></span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
 
-    <div>
-        <center>
+    <!-- Main Content -->
+    <center>
+        <p><b>R</b>ektangle is currently very delicate. </p>
+        <p style="text-indent: 3em;"><b>E</b>ach word should only have 4 letter words. </p>
+        <p><b>K</b>illing the system will make me sad. </p>
+        <p style="text-indent: 2em;"><b>T</b>he height and width should be left as 1. </p>
+    </center>
 
-            <br><b> Garage Task </b>
-            <br>
-            <textarea id="outputs" rows=17 cols=45> 
-            Welcome to the Garage
-        </textarea>
-
-
-            <br><button onclick="generateCars()">Auto-Generate 10 cars</button><br>
-            <br>
-            <form id="garageForm"> Type: <input type="text" id='type' value="car">
-                <br> Size: <input type="text" id='size' onkeypress='return event.charCode >= 48 && event.charCode <= 57'>
-                <br> Reg: <input type="text" id='reg'>
-                <br> No. of Issues: <input type="text" id='issues'> <br>
-            </form>
-            <button onclick="submitCar()">Submit Car</button><br>
-
-            <br><button onclick="showAllGarage()"> Show Garage </button><br>
-            <br>
-            <form id="garageDelForm"> ID: <input type="text" id='id'><br>
-            </form>
-            <button onclick="removeFromGarage()">Remove</button>
-            <button onclick="calcBillSubmit()">Calculate Bills</button><br>
-            <br> <button onclick="calcBillAll()">Calculate All Bills</button><br>
-            <br>
-            <form id="garageCommand"> Command: <input type="text" id='command'><br>
-            </form>
-            <button onclick="getCommand()">Run Command</button><br>
-
-            <br><b> Commands: </b>
-            <p>add- "add TYPE SIZE REG ISSUES" -> "add car 5 NB15CPP 10"</p>
-            <p>remove- "remove 1" to remove vehicle 1 </p>
-            <p>bill- "bill" to calculate all bills or "bill 1" to bill vehicle 1</p>
-            <p> print- "print" to print all or "print 1" to print vehicle 1</p>
-        </center>
-
+    <center><br><textarea id="outputs" rows=5 cols=10> 
+           Test
+        </textarea></center>
+    <div align="center">
+        <form id="REKTform"> Input Data: <input type="text" id='input' value="rekt, 1, 1">
+        </form>
+        <button onclick="getRektangle()">GET REKTangle</button><br>
     </div>
 
 
+    <hr>
+
+    <!-- Footer -->
     <footer>
 
         <p class="copyright text-muted">Copyright &copy; Your Website 2017</p>
@@ -118,5 +100,6 @@
     <!-- Custom scripts for this template -->
     <script src="js/clean-blog.min.js"></script>
 
-
 </body>
+
+</html>
