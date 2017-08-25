@@ -13,13 +13,28 @@
 </head>
 
 <body>
+    <center>
+        <button onclick="getWords()">Play Hangman!</button><br>
+        <button onclick="playGame()">Play Hangman!</button><br>
 
-    <button onclick="getWords()">Get Words</button><br>
-    <button onclick="chooseWord()">choose Word</button><br>
+        <br>
+        <div id="wordArea">
 
-    <form id="guessBox"> Guess: <input type="text" id='guessLetter' onkeypress='return /[a-z]/; '>
-    </form>
-    <button onclick="guess()">Guess!</button><br>
+        </div><br><br>
+        <div id="hangmanzone">
+        </div>
+        <br>
+        <div id="guessedLetters">
+        </div>
 
+        <br>
+        <form id="guessBox"> Guess: <input type="text" id='guessLetter' onkeypress='return /[a-z]/; '>
+        </form>
+        <button id="guessButton" onclick="guess()">Guess!</button><br>
 
+        <br>
+        <div id="endText">
+        </div>
+
+    </center>
 </body>
