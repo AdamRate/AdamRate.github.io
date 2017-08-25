@@ -248,6 +248,7 @@ function imageSwitch(count) {
             break;
     }
 }
+
 function removeImage(i) {
     let image = document.getElementById(i);
     image.parentNode.removeChild(image);
@@ -266,7 +267,11 @@ function switchImage(a, b) {
     addImage(b);
 }
 
-function click() {
-    console.log("clicked");
-    // checkLetter(x);
+function clickButton(x) {
+    let div = document.getElementById(x).innerHTML;
+    div = div.toLowerCase();
+    console.log(div);
+
+
+    checkLetter(div);
 }
