@@ -12,10 +12,12 @@
 
 </head>
 
-<body>
+<body onload="getWords()">
     <center>
-        <button onclick="getWords()">Play Hangman!</button><br>
-        <button onclick="playGame()">Play Hangman!</button><br>
+        <button id="randomGame" onclick="chooseWord()">Play Hangman Random!</button><br>
+        <button id="easyGame" onclick="chooseEasyWord()">Play Hangman Easy!</button><br>
+        <button id="mediumGame" onclick="chooseMediumWord()">Play Hangman Medium!</button><br>
+        <button id="hardGame" onclick="chooseHardWord()">Play Hangman Hard!</button><br>
 
         <br>
         <div id="wordArea">

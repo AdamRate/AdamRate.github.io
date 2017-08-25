@@ -8,9 +8,26 @@ function getWords() {
     request.onload = function () {
         requestData = request.response;
         requestData = requestData.split("\n");
-        console.log(requestData[0]);
         alert("JSON Data has been Loaded");
     };
+}
+
+easyWords = [];
+mediumWords = [];
+hardWords = [];
+
+function sortWords() {
+    for (let i = 0; i < requestData.length; i++) {
+        if (requestData[i].length <= 5) {
+            hardWords.push(requestData[i]);
+        }
+        if (requestData[i].length > 5 && requestData[i].length < 8) {
+            mediumWords.push(requestData[i]);
+        }
+        if (requestData[i].length > 8) {
+            easyWords.push(requestData[i]);
+        }
+    }
 }
 
 //let words = requestData;
@@ -18,10 +35,42 @@ let dashWord = [];
 let word = [];
 let count = 7;
 function chooseWord() {
+    setGameTypesInvis();
     let i = Math.floor(Math.random() * (requestData.length));
     //console.log(i);
     word = requestData[i].split("");
     word.pop();
+    doDashWord();
+}
+
+function chooseEasyWord() {
+    setGameTypesInvis();
+    sortWords();
+    let i = Math.floor(Math.random() * (easyWords.length));
+    word = easyWords[i].split("");
+    word.pop();
+    doDashWord();
+}
+
+function chooseMediumWord() {
+    setGameTypesInvis();
+    sortWords();
+    let i = Math.floor(Math.random() * (mediumWords.length));
+    word = mediumWords[i].split("");
+    word.pop();
+    doDashWord();
+}
+
+function chooseHardWord() {
+    setGameTypesInvis();
+    sortWords();
+    let i = Math.floor(Math.random() * (hardWords.length));
+    word = hardWords[i].split("");
+    word.pop();
+    doDashWord();
+}
+
+function doDashWord() {
     for (let x = 0; x < word.length; x++) {
         dashWord.push("_ ");
     }
@@ -52,6 +101,7 @@ function guess() {
         console.log("you already died lol");
     }
 }
+
 let guessedLetters = [];
 function checkLetter(val) {
     let trigger = false;
@@ -68,7 +118,7 @@ function checkLetter(val) {
 
         if (count === 0) {
             console.log("you died lol");
-            document.getElementById("guessButton").disabled = true;
+            lose();
         }
     }
 
@@ -103,6 +153,10 @@ function playGame() {
     chooseWord();
 }
 
+function playGameEasy() {
+    chooseWordEasy();
+}
+
 function checkWin() {
     let count = 0;
     for (let i = 0; i < dashWord.length; i++) {
@@ -112,7 +166,6 @@ function checkWin() {
             if (count >= dashWord.length) {
                 win();
             }
-
         }
     }
 }
@@ -120,10 +173,32 @@ function checkWin() {
 function win() {
     console.log("win");
     setElementsInvis();
+    document.getElementById("endText").innerHTML = "<b> You Won! You had " + count + " Lives Left!</b>";
+}
 
+let finalWord = "";
+function getWordToGuessString() {
+    for (let i = 0; i < word.length; i++) {
+        console.log(word[i]);
+        finalWord += word[i];
+    }
+}
+
+function lose() {
+    console.log("Loser");
+    setElementsInvis();
+    getWordToGuessString();
+    document.getElementById("endText").innerHTML = "<b> You Lost. The word was " + finalWord + "! </b>";
 }
 
 function setElementsInvis() {
     document.getElementById("guessButton").style.visibility = 'hidden';
     document.getElementById("guessBox").style.visibility = 'hidden';
+}
+
+function setGameTypesInvis() {
+    document.getElementById("randomGame").style.visibility = 'hidden';
+    document.getElementById("easyGame").style.visibility = 'hidden';
+    document.getElementById("mediumGame").style.visibility = 'hidden';
+    document.getElementById("hardGame").style.visibility = 'hidden';
 }
