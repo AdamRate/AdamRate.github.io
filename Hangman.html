@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <script src="js/Hangman.js"></script>
+
+</head>
+
+<body>
+
+    <button onclick="getWords()">Get Words</button><br>
+    <button onclick="chooseWord()">choose Word</button><br>
+
+    <form id="guessBox"> Guess: <input type="text" id='guessLetter' onkeypress='return /[a-z]/; '>
+    </form>
+    <button onclick="guess()">Guess!</button><br>
+
+
+</body>
