@@ -87,12 +87,9 @@ function guess() {
     if (count > 0) {
         let box = document.getElementById('guessBox');
         let boxVal = box.elements[0].value;
-        console.log(boxVal);
         boxVal = boxVal.toLowerCase();
         boxVal = boxVal.split("");
         boxVal = boxVal[0];
-        console.log(boxVal);
-
         checkLetter(boxVal);
     }
     else {
@@ -195,6 +192,8 @@ function setElementsInvis() {
 function setElemntsVis() {
     document.getElementById("guessingDiv").style.visibility = 'visible';
     document.getElementById("guessingDiv").style.display = 'block';
+    document.getElementById("letters").style.visibility = 'visible';
+    document.getElementById("letters").style.display = 'block';
 }
 
 function setGameTypesInvis() {
@@ -216,7 +215,6 @@ function playAgain() {
 }
 
 function imageSwitch(count) {
-    console.log(count);
     switch (count) {
         case 6:
             addImage(6);
@@ -246,7 +244,7 @@ function imageSwitch(count) {
             break;
 
         default:
-            console.log("break");
+            console.log("something probably broke");
             break;
     }
 }
@@ -266,4 +264,9 @@ function addImage(i) {
 function switchImage(a, b) {
     removeImage(a);
     addImage(b);
+}
+
+function click() {
+    console.log("clicked");
+    // checkLetter(x);
 }
