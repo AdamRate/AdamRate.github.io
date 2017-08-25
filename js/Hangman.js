@@ -8,7 +8,7 @@ function getWords() {
     request.onload = function () {
         requestData = request.response;
         requestData = requestData.split("\n");
-        alert("JSON Data has been Loaded");
+        console.log("JSON Data has been Loaded");
     };
 }
 
@@ -24,20 +24,19 @@ function sortWords() {
         if (requestData[i].length > 5 && requestData[i].length < 8) {
             mediumWords.push(requestData[i]);
         }
-        if (requestData[i].length > 8) {
+        if (requestData[i].length >= 8) {
             easyWords.push(requestData[i]);
         }
     }
 }
 
-//let words = requestData;
 let dashWord = [];
 let word = [];
 let count = 7;
 function chooseWord() {
     setGameTypesInvis();
+    setElemntsVis();
     let i = Math.floor(Math.random() * (requestData.length));
-    //console.log(i);
     word = requestData[i].split("");
     word.pop();
     doDashWord();
@@ -45,6 +44,7 @@ function chooseWord() {
 
 function chooseEasyWord() {
     setGameTypesInvis();
+    setElemntsVis();
     sortWords();
     let i = Math.floor(Math.random() * (easyWords.length));
     word = easyWords[i].split("");
@@ -54,6 +54,7 @@ function chooseEasyWord() {
 
 function chooseMediumWord() {
     setGameTypesInvis();
+    setElemntsVis();
     sortWords();
     let i = Math.floor(Math.random() * (mediumWords.length));
     word = mediumWords[i].split("");
@@ -63,6 +64,7 @@ function chooseMediumWord() {
 
 function chooseHardWord() {
     setGameTypesInvis();
+    setElemntsVis();
     sortWords();
     let i = Math.floor(Math.random() * (hardWords.length));
     word = hardWords[i].split("");
@@ -74,8 +76,6 @@ function doDashWord() {
     for (let x = 0; x < word.length; x++) {
         dashWord.push("_ ");
     }
-    console.log(dashWord);
-    console.log(word);
     for (let v = 0; v < dashWord.length; v++) {
         document.getElementById('wordArea').innerHTML += dashWord[v];
     }
@@ -84,7 +84,6 @@ function doDashWord() {
 }
 
 function guess() {
-    //User Input
     if (count > 0) {
         let box = document.getElementById('guessBox');
         let boxVal = box.elements[0].value;
@@ -97,7 +96,6 @@ function guess() {
         checkLetter(boxVal);
     }
     else {
-        //endGame();
         console.log("you already died lol");
     }
 }
@@ -115,6 +113,7 @@ function checkLetter(val) {
     if (trigger === false) {
         count -= 1;
         displayLivesLeft();
+        imageSwitch(count);
 
         if (count === 0) {
             console.log("you died lol");
@@ -127,7 +126,6 @@ function checkLetter(val) {
         document.getElementById('wordArea').innerHTML += dashWord[v];
     }
     displayGuessedLetters();
-    console.log(dashWord);
     checkWin();
 }
 
@@ -136,7 +134,7 @@ function displayGuessedLetters() {
 }
 
 function displayLivesLeft() {
-    document.getElementById('hangmanzone').innerHTML = "Incorrect Guesses Remaining: " + count;
+    document.getElementById('hangmanzone').innerHTML = "<center> Incorrect Guesses Remaining: " + count + "</center>";
 }
 
 function resetVals() {
@@ -161,7 +159,6 @@ function checkWin() {
     let count = 0;
     for (let i = 0; i < dashWord.length; i++) {
         if (dashWord[i] !== "_ ") {
-            console.log("Checked Win: " + count);
             count++;
             if (count >= dashWord.length) {
                 win();
@@ -171,34 +168,102 @@ function checkWin() {
 }
 
 function win() {
-    console.log("win");
     setElementsInvis();
     document.getElementById("endText").innerHTML = "<b> You Won! You had " + count + " Lives Left!</b>";
+    showPlayAgainButton();
 }
 
 let finalWord = "";
 function getWordToGuessString() {
     for (let i = 0; i < word.length; i++) {
-        console.log(word[i]);
         finalWord += word[i];
     }
 }
 
 function lose() {
-    console.log("Loser");
     setElementsInvis();
     getWordToGuessString();
     document.getElementById("endText").innerHTML = "<b> You Lost. The word was " + finalWord + "! </b>";
+    showPlayAgainButton();
 }
 
 function setElementsInvis() {
-    document.getElementById("guessButton").style.visibility = 'hidden';
-    document.getElementById("guessBox").style.visibility = 'hidden';
+    document.getElementById("guessingDiv").style.visibility = 'hidden';
+    document.getElementById("guessingDiv").style.display = 'none';
+}
+
+function setElemntsVis() {
+    document.getElementById("guessingDiv").style.visibility = 'visible';
+    document.getElementById("guessingDiv").style.display = 'block';
 }
 
 function setGameTypesInvis() {
-    document.getElementById("randomGame").style.visibility = 'hidden';
-    document.getElementById("easyGame").style.visibility = 'hidden';
-    document.getElementById("mediumGame").style.visibility = 'hidden';
-    document.getElementById("hardGame").style.visibility = 'hidden';
+    document.getElementById("gameTypes").style.visibility = 'hidden';
+    document.getElementById("gameTypes").style.display = 'none';
+}
+
+function setGameTypesVis() {
+    document.getElementById("gameTypes").style.visibility = 'visible';
+    document.getElementById("gameTypes").style.display = 'block';
+}
+
+function showPlayAgainButton() {
+    document.getElementById("playAgainButton").style.visibility = 'visible';
+}
+
+function playAgain() {
+    location.reload();
+}
+
+function imageSwitch(count) {
+    console.log(count);
+    switch (count) {
+        case 6:
+            addImage(6);
+            break;
+
+        case 5:
+            switchImage(6, 5);
+            break;
+
+        case 4:
+            switchImage(5, 4);
+            break;
+
+        case 3:
+            switchImage(4, 3);
+            break;
+
+        case 2:
+            switchImage(3, 2);
+            break;
+
+        case 1:
+            switchImage(2, 1);
+            break;
+        case 0:
+            switchImage(1, 0);
+            break;
+
+        default:
+            console.log("break");
+            break;
+    }
+}
+function removeImage(i) {
+    let image = document.getElementById(i);
+    image.parentNode.removeChild(image);
+}
+
+function addImage(i) {
+    let img = document.createElement("img");
+    img.src = "test" + i + ".jpg";
+    img.id = i;
+    src = document.getElementById("test");
+    src.appendChild(img);
+}
+
+function switchImage(a, b) {
+    removeImage(a);
+    addImage(b);
 }
