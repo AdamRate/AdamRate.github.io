@@ -1,4 +1,36 @@
 let requestData;
+
+function promisedRequest(url){
+    return new Promise((resolve) => {
+        console.log(url);
+        let request = new XMLHttpRequest();
+        request.open('GET', url);
+        request.responseType = 'text';
+        request.send();
+        
+        
+        request.onload = function () {
+        resolve(request.response);
+        }
+        //     requestData = request.response;   
+        // requestData = requestData.split("\n");}
+        //  resolve(requestData);   //console.log("JSON Data has been Loaded");)
+ })
+}
+
+
+function doPromise(){
+    promisedRequest("https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt").then((resolve) =>{
+   // console.log(resolve)
+    console.log("JSON Data has been Loaded");
+    requestData=resolve;
+    //console.log(requestData);
+    requestData = resolve.split("\n");
+    console.log(requestData[0]);
+    })
+}
+
+
 function getWords() {
     let requestURL = "https://raw.githubusercontent.com/dwyl/english-words/master/words_alpha.txt";
     let request = new XMLHttpRequest();
